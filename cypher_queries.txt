@@ -11,7 +11,6 @@ RETURN s.name AS student_name, COUNT(sess) AS total_sessions
 ORDER BY total_sessions DESC
 LIMIT 3;
 
-
 // 3. Count how many students attended each session
 MATCH (session:Session)<-[:ATTENDED]-(student:Student)
 RETURN session.session_id AS session_id, COUNT(student) AS total_attendees;
