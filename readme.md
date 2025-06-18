@@ -47,7 +47,6 @@ The ETL notebook processes raw CSV files containing student and session data. It
 | student\_id | TEXT | Primary Key |
 | name        | TEXT |             |
 | email       | TEXT |             |
-| country     | TEXT | Optional    |
 
 ### **sessions**
 

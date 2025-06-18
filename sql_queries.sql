@@ -1,35 +1,32 @@
--- 📄 SQL Queries: Relational Analysis for the DataOps Project
+🔹Q1. Sessions attended by “Alice”
+SELECT s.*
+FROM students AS st
+JOIN attendance AS a ON st.student_id = a.student_id
+JOIN sessions AS s ON a.session_id = s.session_id
+WHERE st.name = 'Alice';
+🔹Q2. Top 3 students with most attended sessions
+SELECT st.name, COUNT(*) AS session_count
+FROM students AS st
+JOIN attendance AS a ON st.student_id = a.student_id
+GROUP BY st.name
+ORDER BY session_count DESC
+LIMIT 3;
+🔹Q3. Count how many students attended each session
+SELECT s.session_id, COUNT(DISTINCT a.student_id) AS student_count
+FROM sessions AS s
+JOIN attendance AS a ON s.session_id = a.session_id
+GROUP BY s.session_id;
+🔹Q4. Unique students per module
+SELECT s.module, COUNT(DISTINCT a.student_id) AS unique_students
+FROM sessions AS s
+JOIN attendance AS a ON s.session_id = a.session_id
+GROUP BY s.module;
+🔹Q5. Students who never attended any session
+SELECT st.*
+FROM students AS st
+LEFT JOIN attendance AS a ON st.student_id = a.student_id
+WHERE a.session_id IS NULL;
 
--- 🔍 1. List all sessions with student names who attended
-SELECT s.name AS student_name, a.session_id, sess.date, sess.module
-FROM attendance a
-JOIN students s ON s.student_id = a.student_id
-JOIN sessions sess ON sess.session_id = a.session_id;
 
--- 📊 2. Count number of attendees per session
-SELECT a.session_id, COUNT(a.student_id) AS attendee_count
-FROM attendance a
-GROUP BY a.session_id;
 
--- 🧠 3. Top 5 students by number of sessions attended
-SELECT s.name, COUNT(a.session_id) AS sessions_attended
-FROM attendance a
-JOIN students s ON s.student_id = a.student_id
-GROUP BY s.name
-ORDER BY sessions_attended DESC
-LIMIT 5;
 
--- 🌍 4. Total attendance by country
-SELECT s.country, COUNT(*) AS attendance_count
-FROM attendance a
-JOIN students s ON s.student_id = a.student_id
-GROUP BY s.country
-ORDER BY attendance_count DESC;
-
--- ⏱️ 5. Total session duration attended per student
-SELECT s.name AS student_name, SUM(sess.duration) AS total_minutes
-FROM attendance a
-JOIN students s ON s.student_id = a.student_id
-JOIN sessions sess ON sess.session_id = a.session_id
-GROUP BY s.name
-ORDER BY total_minutes DESC;
