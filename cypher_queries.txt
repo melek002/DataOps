@@ -1,0 +1,28 @@
+// 📄 Cypher Queries: Graph Data Exploration for the DataOps Project
+
+// 1. Find all sessions attended by a specific student
+MATCH (s:Student)-[:ATTENDED]->(session:Session)
+where s.name="Alice"
+RETURN s.name AS student_name, session.module AS module, session.date AS date;
+
+// 2. Find top 3 students who attended the most sessions
+MATCH (s:Student)-[:ATTENDED]->(sess:Session)
+RETURN s.name AS student_name, COUNT(sess) AS total_sessions
+ORDER BY total_sessions DESC
+LIMIT 3;
+
+
+// 3. Count how many students attended each session
+MATCH (session:Session)<-[:ATTENDED]-(student:Student)
+RETURN session.session_id AS session_id, COUNT(student) AS total_attendees;
+
+// 4. For each module, get the number of unique students who attended at least one session.
+
+MATCH (n:Student)-[:ATTENDED]->(s:Session)
+WITH s.module AS module, COUNT(DISTINCT n) AS unique_students
+RETURN module, unique_students
+
+// 5. Total hours each student spent in sessions
+MATCH (s:Student)-[:ATTENDED]->(sess:Session)
+where not (s)-[:ATTENDED]->(sess)
+return s.name
