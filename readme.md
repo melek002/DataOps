@@ -9,7 +9,7 @@ This project demonstrates a complete DataOps workflow for managing and analyzing
 This data pipeline extracts structured subscription-related records from an OLTP source, Then performs cleaning and transformation using Python, and loads the refined dataset into a PostgreSQL OLAP table hosted on Aiven. The purpose is to create a clean, query-ready dataset that can be further analyzed and visualized in Looker Studio. And to make it simple to use to non developers and business owners 
 # How Did You Design Your Graph Schema?
 The graph schema is modeled to reflect key entities and their relationships in simple design
-# What Are Your Cypher Queries Solving?
+# What Are Your Cypher/Sql Queries Solving?
 The Cypher/Sql queries focus on uncovering attendance patterns and student engagement levels within an academic module system. 
 # Assumptions, Challenges, and Design Decisions
 
