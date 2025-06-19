@@ -89,7 +89,7 @@ The ETL notebook processes raw CSV files containing student and session data. It
 All queries are available in:
 
 - `cypher_queries.txt`
-- `sql_queries.sql`
+- `sql_queries.txt`
 
 ---
 
@@ -106,7 +106,7 @@ All queries are available in:
 /dataops-internship-project
 ├── etl_pipeline.ipynb
 ├── cypher_queries.txt
-├── sql_queries.sql
+├── sql_queries.txt
 ├── /images/
 │   └── graph_model.png
 ├── /docs/
