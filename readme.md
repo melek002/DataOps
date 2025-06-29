@@ -29,11 +29,9 @@ Solution: Defined and engineered ChurnFlag using diploma, progress, and end date
 
 The ETL notebook processes raw CSV files containing student and session data. It performs:
 
-- Data cleaning: Handling nulls, type casting
-- Transformation: Merging attendance logs with metadata
+- Data cleaning/Transformation: Handling nulls, type casting
 - Loading:
   - PostgreSQL for relational analytics
-  - Neo4j for graph-based insights
 
 ---
 
