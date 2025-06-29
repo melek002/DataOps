@@ -14,7 +14,7 @@ The Cypher/SQL queries focus on uncovering attendance patterns and student engag
 ## Assumptions, Challenges, and Design Decisions
 Importing my database into Looker Studio
 Pandas + SQLAlchemy, it was my first time using it, kept searching, didn't want to just import a csv file
-Data Quality: handling missing data was hard, especially for ProductSchedule, which was hard to handle
+Data Quality: handling missing data was hard also the column ProductSchedule was also hard to handle 
 Finally, I am not used to working with Neo4j, so I had to relearn it in those few days, and I think I got the hang of it 
 
 Churn Inference Without Explicit Field
